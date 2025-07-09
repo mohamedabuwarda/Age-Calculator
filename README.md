@@ -24,4 +24,4 @@ Great for learning:
 - Date manipulation in JavaScript
 - Form validation
 - DOM manipulation
-- Responsive design principles..... هل اضيف هنا اسمي ؟
+- Responsive design principles

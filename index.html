@@ -4,118 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Calculator</title>
-    <style>
-        :root {
-            --primary: #4361ee;
-            --secondary: #3f37c9;
-            --light: #f8f9fa;
-            --dark: #212529;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 100%;
-            max-width: 500px;
-            text-align: center;
-        }
-        
-        h1 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--dark);
-            font-weight: 500;
-        }
-        
-        input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        input:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-        }
-        
-        button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-            width: 100%;
-        }
-        
-        button:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
-        }
-        
-        .result {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            display: none;
-        }
-        
-        .result h2 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-        
-        .result p {
-            font-size: 18px;
-            color: var(--dark);
-            margin-bottom: 5px;
-        }
-        
-        .error {
-            color: #dc3545;
-            margin-top: 10px;
-            font-size: 14px;
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -136,52 +25,12 @@
             <p id="age-months"></p>
             <p id="age-days"></p>
         </div>
+
+        <footer class="copyright">
+            &copy; 2025 Mohammed Abu Warda - All Rights Reserved
+        </footer>
     </div>
 
-    <script>
-        document.getElementById('calculate-btn').addEventListener('click', function() {
-            const birthdate = document.getElementById('birthdate').value;
-            const errorMsg = document.getElementById('error-msg');
-            const resultDiv = document.getElementById('result');
-            
-            if (!birthdate) {
-                errorMsg.style.display = 'block';
-                resultDiv.style.display = 'none';
-                return;
-            }
-            
-            errorMsg.style.display = 'none';
-            
-            const today = new Date();
-            const birthDate = new Date(birthdate);
-            
-            if (birthDate > today) {
-                errorMsg.style.display = 'block';
-                resultDiv.style.display = 'none';
-                return;
-            }
-            
-            let ageYears = today.getFullYear() - birthDate.getFullYear();
-            let ageMonths = today.getMonth() - birthDate.getMonth();
-            let ageDays = today.getDate() - birthDate.getDate();
-            
-            if (ageDays < 0) {
-                ageMonths--;
-                const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-                ageDays += lastMonth.getDate();
-            }
-            
-            if (ageMonths < 0) {
-                ageYears--;
-                ageMonths += 12;
-            }
-            
-            document.getElementById('age-years').textContent = `Your age: ${ageYears} years`;
-            document.getElementById('age-months').textContent = `${ageMonths} months`;
-            document.getElementById('age-days').textContent = `and ${ageDays} days`;
-            
-            resultDiv.style.display = 'block';
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

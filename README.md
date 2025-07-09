@@ -20,7 +20,7 @@ A clean, responsive age calculator web application that calculates your exact ag
 2. Click "Calculate Age"
 3. View your exact age breakdown
 
-Great for learning:
+## Great for learning:
 - Date manipulation in JavaScript
 - Form validation
 - DOM manipulation
